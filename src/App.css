@@ -1,0 +1,107 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+  }
+}
+
+.left-panel, .right-panel {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.left-panel {
+  background-color: #2a2a2a;
+  gap: 1.5rem;
+}
+
+.right-panel {
+  background-color: #1a1a1a;
+  position: relative;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.input-group label {
+  font-weight: 600;
+  color: #ccc;
+}
+
+.input-group textarea {
+  flex: 1;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background-color: #333;
+  color: #fff;
+  font-family: inherit;
+  font-size: 1rem;
+  resize: none;
+}
+
+.input-group textarea:focus {
+  outline: none;
+  border-color: #646cff;
+}
+
+.output-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.output-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+.copy-button {
+  padding: 0.5rem 1rem;
+  background-color: #646cff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.copy-button:hover {
+  background-color: #535bf2;
+}
+
+.copy-button.copied {
+  background-color: #4caf50;
+}
+
+.json-display {
+  flex: 1;
+  background-color: #0d0d0d;
+  color: #00ff00;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow: auto;
+  margin: 0;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.json-display code {
+  white-space: pre-wrap;
+  word-break: break-all;
+}
