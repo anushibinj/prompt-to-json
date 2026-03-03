@@ -1,73 +1,55 @@
-# React + TypeScript + Vite
+# ⚡️ LLM Prompt JSON Generator (prompt-to-json)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A blazing-fast, browser-based utility built to eliminate the friction of manually formatting JSON payloads for LLM APIs.
 
-Currently, two official plugins are available:
+If you frequently test prompts or integrate AI into your applications, manually escaping quotes and structuring JSON is a time-sink. This lightweight tool takes a System Prompt and a User Prompt and instantly outputs a valid, perfectly formatted, and copy-paste-ready JSON object.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+- **Live Updating:** No submit buttons. The JSON payload updates in real-time as you type.
+- **Smart Formatting:** Leaves out the `"systemPrompt"` key entirely if you leave the field blank.
+- **One-Click Copy:** Native clipboard integration grabs the exact stringified JSON for instant pasting into your API testing tool or codebase.
+- **Zero Storage:** Everything happens locally in your browser. No prompts are saved or sent to any backend.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠 Tech Stack
 
-## Expanding the ESLint configuration
+- **Core:** React 18
+- **Language:** TypeScript
+- **Build Tool:** Vite
+- **Styling:** CSS / Tailwind (Adjust as needed)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+To run this project locally, make sure you have [Node.js](https://nodejs.org/) installed, then follow these steps:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### 1. Clone the repository
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone [https://github.com/ajosephr/prompt-to-json.git](https://github.com/ajosephr/prompt-to-json.git)
+cd prompt-to-json
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Install dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
 ```
+
+### 3. Start the development server
+
+```bash
+npm run dev
+```
+
+Open your browser and navigate to the `localhost` URL provided in your terminal (usually http://localhost:5173) to see the app running.
+
+## 💡 Usage
+
+1. Paste or type your context into the System Prompt box (optional).
+2. Type your main instruction into the User Prompt box (mandatory).
+3. Watch the perfectly formatted JSON appear on the right.
+4. Click Copy and paste it wherever you need it!
