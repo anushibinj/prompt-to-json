@@ -1,10 +1,22 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 
 function App() {
-  const [systemPrompt, setSystemPrompt] = useState('')
-  const [userPrompt, setUserPrompt] = useState('')
+  const [systemPrompt, setSystemPrompt] = useState(
+    localStorage.getItem('systemPrompt') || ''
+  )
+  const [userPrompt, setUserPrompt] = useState(
+    localStorage.getItem('userPrompt') || ''
+  )
   const [copied, setCopied] = useState(false)
+
+  useEffect(() => {
+    localStorage.setItem('systemPrompt', systemPrompt)
+  }, [systemPrompt])
+
+  useEffect(() => {
+    localStorage.setItem('userPrompt', userPrompt)
+  }, [userPrompt])
 
   const jsonObject: { systemPrompt?: string; userPrompt: string } = {
     userPrompt: userPrompt,
@@ -24,6 +36,13 @@ function App() {
     } catch (err) {
       console.error('Failed to copy!', err)
     }
+  }
+
+  const handleReset = () => {
+    setSystemPrompt('')
+    setUserPrompt('')
+    localStorage.removeItem('systemPrompt')
+    localStorage.removeItem('userPrompt')
   }
 
   return (
@@ -51,12 +70,17 @@ function App() {
       <div className="right-panel">
         <div className="output-header">
           <h2>JSON Output</h2>
-          <button
-            className={`copy-button ${copied ? 'copied' : ''}`}
-            onClick={copyToClipboard}
-          >
-            {copied ? 'Copied!' : 'Copy'}
-          </button>
+          <div className="button-group">
+            <button className="reset-button" onClick={handleReset}>
+              Reset
+            </button>
+            <button
+              className={`copy-button ${copied ? 'copied' : ''}`}
+              onClick={copyToClipboard}
+            >
+              {copied ? 'Copied!' : 'Copy'}
+            </button>
+          </div>
         </div>
         <pre className="json-display">
           <code>{jsonString}</code>

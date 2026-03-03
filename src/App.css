@@ -71,15 +71,35 @@
   color: #ccc;
 }
 
-.copy-button {
+.button-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.copy-button, .reset-button {
   padding: 0.5rem 1rem;
-  background-color: #646cff;
-  color: white;
-  border: none;
   border-radius: 4px;
   cursor: pointer;
   font-weight: 600;
-  transition: background-color 0.2s;
+  transition: all 0.2s;
+}
+
+.reset-button {
+  background-color: transparent;
+  color: #ccc;
+  border: 1px solid #444;
+}
+
+.reset-button:hover {
+  background-color: #333;
+  color: #fff;
+  border-color: #666;
+}
+
+.copy-button {
+  background-color: #646cff;
+  color: white;
+  border: 1px solid #646cff;
 }
 
 .copy-button:hover {
